@@ -2,8 +2,8 @@ import styles from "./ContactStyles.module.css";
 
 function Contact() {
   return (
-    <section id="skills" className={styles.container}>
-      <h1 className="sectionTitle">Skills</h1>
+    <section id="contact" className={styles.container}>
+      <h1 className="sectionTitle">Contact Us</h1>
       <form action="https://formspree.io/f/mwpeerwg" method="post">
         <div className="formGroup">
           <label htmlFor="name" hidden>

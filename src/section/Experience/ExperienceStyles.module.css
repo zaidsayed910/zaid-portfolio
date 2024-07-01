@@ -1,0 +1,118 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    img {
+        /* max-width: 250px; */
+        align-self: center;
+        background-color: var(--project-card-bg);
+        border-radius: 20px;
+    }
+
+    a {
+        width: fit-content;
+        text-decoration: none;
+        color: #222;
+        transition: transform 200ms ease-in-out;
+    }
+
+    a:hover {
+        transform: scale(1.05);
+    }
+
+}
+
+.experienceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+
+    .imgbox{
+        width: 30%;
+    }
+
+    img {
+        width: 150px;
+        padding: 10px 20px;
+    }
+
+    .textbox {
+        width: 60%;
+
+        .designation{
+            text-align: start;
+        }
+
+        p {
+            inline-size: none;
+            text-align: start;
+        }
+    }
+}
+
+@media (width >= 800px) {
+
+    .experienceContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 0 30px;
+
+        img {
+            width: 150px;
+            padding: 10px 20px;
+        }
+    
+        img {
+            width: 150px;
+        }
+    
+
+    }
+}
+
+@media (width <= 800px) {
+
+    .experienceContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 0 30px;
+
+        img {
+            width: 150px;
+        }
+
+        p {
+            inline-size: none;
+            text-align: center;
+        }
+
+        .imgbox{
+            width: 100%;
+        }
+    
+        img {
+            width: 150px;
+        }
+    
+        .textbox {
+            width: 100%;
+    
+            .designation{
+                text-align: center;
+            }
+    
+            p {
+                inline-size: none;
+                text-align: center;
+            }
+        }
+
+    }
+
+}

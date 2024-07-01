@@ -32,13 +32,13 @@ function Hero() {
             </h1>
             <h2>FrontEnd Developer</h2>
             <span>
-                <a href="https://twitter.com/" target='_blank'>
+                <a href="https://twitter.com/zaidsayed09" target='_blank'>
                     <img src={twitterIcon} alt=" Twitter Icon" />
                 </a>
-                <a href="https://github.com/" target='_blank'>
+                <a href="https://github.com/zaidsayed910" target='_blank'>
                     <img src={githubIcon} alt=" Github Icon" />
                 </a>
-                <a href="https://linkedin.com/" target='_blank'>
+                <a href="https://linkedin.com/in/zaid-sayed-09" target='_blank'>
                     <img src={linkedinIcon} alt=" Linkedin Icon" />
                 </a>
             </span>
