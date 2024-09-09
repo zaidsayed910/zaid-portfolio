@@ -65,7 +65,7 @@ function Experience() {
             </div>
             <div className={styles.textbox}>
                 <h3 className={styles.designation}>Senior Technology Associate</h3>
-                <p className={styles.datetime}>Current</p>
+                <p className={styles.datetime}>Currently working</p>
                 <br />
                 <p className={styles.exptext}>
                    <ul>
