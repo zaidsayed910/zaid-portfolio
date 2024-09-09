@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 40px;
 
     .imgbox{
@@ -50,6 +50,14 @@
         p {
             inline-size: none;
             text-align: start;
+        }
+
+         .exptech{
+            font-weight: 400;
+        }
+
+        ul {
+            padding-inline-start: 30px;
         }
     }
 }
@@ -110,6 +118,15 @@
             p {
                 inline-size: none;
                 text-align: center;
+            }
+
+             .exptech{
+                font-weight: 400;
+            }
+
+            ul {
+                padding-inline-start: 30px;
+                text-align: start;
             }
         }
 
