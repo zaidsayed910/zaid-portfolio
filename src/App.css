@@ -1,28 +1,38 @@
 :root {
-    --background-color: #fff;
+    --background-color: #f8f9fc;
     --btn-color: #0987f2;
     --btn-text-color: #fff;
     --project-card-bg: #ffffff00;
-    --text-color:#222;
+    --text-color: #1a1d26;
     --form-text-color: #555;
     --footer-text-color: #888;
+    --accent-color: #0987f2;
+    --accent-color-end: #6366f1;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --perspective: 1000px;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 [data-theme='dark'] {
-    --background-color: #222;
-    --btn-color: #fff;
-    --btn-text-color: #222;
-    --project-card-bg: #fff;
-    --text-color:#fff;
-    --form-text-color: #fff;
-    --footer-text-color: #bbb;
+    --background-color: #0f1116;
+    --btn-color: #3b82f6;
+    --btn-text-color: #fff;
+    --project-card-bg: #1e222a;
+    --text-color: #e4e6eb;
+    --form-text-color: #c4c8ce;
+    --footer-text-color: #9ca3af;
+    --accent-color: #3b82f6;
+    --accent-color-end: #8b5cf6;
+    --card-bg: rgba(30, 34, 42, 0.8);
 }
 
 body {
-    background-color: var(--background-color);
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 60px;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 60px;
+  padding-top: 0;
 }
 
 html {
@@ -70,6 +80,42 @@ p {
 .hover {
     cursor: pointer;
 }
+
+/* Scroll-reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal.inView {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revealDelay1 { transition-delay: 0.1s; }
+.revealDelay2 { transition-delay: 0.2s; }
+.revealDelay3 { transition-delay: 0.3s; }
+.revealDelay4 { transition-delay: 0.4s; }
+.revealDelay5 { transition-delay: 0.5s; }
+.revealDelay6 { transition-delay: 0.6s; }
+
+/* Stagger project cards when section is in view */
+.reveal .projectsContainer > a {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+.reveal.inView .projectsContainer > a {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.inView .projectsContainer > a[data-delay="0"] { transition-delay: 0.1s; }
+.reveal.inView .projectsContainer > a[data-delay="1"] { transition-delay: 0.2s; }
+.reveal.inView .projectsContainer > a[data-delay="2"] { transition-delay: 0.3s; }
+.reveal.inView .projectsContainer > a[data-delay="3"] { transition-delay: 0.4s; }
+.reveal.inView .projectsContainer > a[data-delay="4"] { transition-delay: 0.5s; }
+.reveal.inView .projectsContainer > a[data-delay="5"] { transition-delay: 0.6s; }
 
 @media (width >= 800px) {
 

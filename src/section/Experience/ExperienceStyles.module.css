@@ -1,135 +1,101 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-
-    img {
-        /* max-width: 250px; */
-        align-self: center;
-        background-color: var(--project-card-bg);
-        border-radius: 20px;
-    }
-
-    a {
-        width: fit-content;
-        text-decoration: none;
-        color: #222;
-        transition: transform 200ms ease-in-out;
-    }
-
-    a:hover {
-        transform: scale(1.05);
-    }
-
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .experienceContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    align-items: center;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  padding: 2rem;
+  border-radius: 20px;
+  background: var(--card-bg);
+  border: 1px solid color-mix(in srgb, var(--text-color) 8%, transparent);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .imgbox{
-        width: 30%;
-    }
+.experienceContainer:hover {
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.12);
+}
 
-    img {
-        width: 150px;
-        padding: 10px 20px;
-    }
+.experienceContainer .imgbox {
+  width: 30%;
+}
 
-    .textbox {
-        width: 60%;
+.experienceContainer img {
+  width: 120px;
+  padding: 10px 20px;
+  object-fit: contain;
+}
 
-        .designation{
-            text-align: start;
-        }
+.experienceContainer .textbox {
+  width: 60%;
+}
 
-        p {
-            inline-size: none;
-            text-align: start;
-        }
+.experienceContainer .designation {
+  text-align: start;
+  color: var(--accent-color);
+  font-weight: 600;
+}
 
-         .exptech{
-            font-weight: 400;
-        }
+.experienceContainer .textbox p {
+  inline-size: none;
+  text-align: start;
+}
 
-        ul {
-            padding-inline-start: 30px;
-        }
-    }
+.experienceContainer .exptech {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--footer-text-color);
+}
+
+.experienceContainer ul {
+  padding-inline-start: 24px;
 }
 
 @media (width >= 800px) {
+  .experienceContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 2rem 2.5rem;
+  }
 
-    .experienceContainer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 0 30px;
-
-        img {
-            width: 150px;
-            padding: 10px 20px;
-        }
-    
-        img {
-            width: 150px;
-        }
-    
-
-    }
+  .experienceContainer img {
+    width: 140px;
+    padding: 10px 20px;
+  }
 }
 
 @media (width <= 800px) {
+  .experienceContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
 
-    .experienceContainer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 0 30px;
+  .experienceContainer .imgbox {
+    width: 100%;
+  }
 
-        img {
-            width: 150px;
-        }
+  .experienceContainer img {
+    width: 120px;
+  }
 
-        p {
-            inline-size: none;
-            text-align: center;
-        }
+  .experienceContainer .textbox {
+    width: 100%;
+  }
 
-        .imgbox{
-            width: 100%;
-        }
-    
-        img {
-            width: 150px;
-        }
-    
-        .textbox {
-            width: 100%;
-    
-            .designation{
-                text-align: center;
-            }
-    
-            p {
-                inline-size: none;
-                text-align: center;
-            }
+  .experienceContainer .designation {
+    text-align: center;
+  }
 
-             .exptech{
-                font-weight: 400;
-            }
-
-            ul {
-                padding-inline-start: 30px;
-                text-align: start;
-            }
-        }
-
-    }
-
+  .experienceContainer .textbox p,
+  .experienceContainer ul {
+    text-align: start;
+  }
 }

@@ -1,55 +1,82 @@
+import { useRef, useState } from 'react'
 import styles from './HeroStyles.module.css'
 import heroImg from '../../assets/hero-img.png'
-import sun from '../../assets/sun.svg'
-import moon from '../../assets/moon.svg'
 import twitterLight from '../../assets/twitter-light.svg'
 import twitterDark from '../../assets/twitter-dark.svg'
 import githubLight from '../../assets/github-light.svg'
 import githubDark from '../../assets/github-dark.svg'
 import linkedinLight from '../../assets/linkedin-light.svg'
 import linkedinDark from '../../assets/linkedin-dark.svg'
-import CV from '../../assets/cv.pdf'
 import { useTheme } from '../../common/ThemeContext'
 
 function Hero() {
-    const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme()
+  const cardRef = useRef(null)
+  const [transform, setTransform] = useState('')
 
-    const themeIcon = theme === 'light' ? sun : moon;
-    const twitterIcon = theme === 'light' ? twitterLight : twitterDark;
-    const githubIcon = theme === 'light' ? githubLight : githubDark;
-    const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark;
+  const twitterIcon = theme === 'light' ? twitterLight : twitterDark
+  const githubIcon = theme === 'light' ? githubLight : githubDark
+  const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    const rotateX = (y - 0.5) * -14
+    const rotateY = (x - 0.5) * 14
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`)
+  }
+
+  const handleMouseLeave = () => {
+    setTransform('perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)')
+  }
+
   return (
-    <section id='hero' className={styles.container}>
-        <div className={styles.colorModeContainer}>
-            <img className={styles.hero} src={heroImg} alt="Profile Picture of Zaid Sayed" />
-            <img className={styles.colorMode} src={themeIcon} alt="Color Mode Icon" onClick={toggleTheme} />
+    <section id="hero" className={styles.container}>
+      <div className={styles.bgShape} aria-hidden="true" />
+      <div className={styles.colorModeContainer}>
+        <div
+          ref={cardRef}
+          className={styles.heroCard}
+          style={{ transform }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <img className={styles.hero} src={heroImg} alt="Profile of Zaid Sayed" />
         </div>
-        <div className={styles.info}>
-            <h1>
-                Zaid 
-                <br />
-                Sayed
-            </h1>
-            <h2>FrontEnd Developer</h2>
-            <span>
-                <a href="https://twitter.com/zaidsayed09" target='_blank'>
-                    <img src={twitterIcon} alt=" Twitter Icon" />
-                </a>
-                <a href="https://github.com/zaidsayed910" target='_blank'>
-                    <img src={githubIcon} alt=" Github Icon" />
-                </a>
-                <a href="https://linkedin.com/in/zaid-sayed-09" target='_blank'>
-                    <img src={linkedinIcon} alt=" Linkedin Icon" />
-                </a>
-            </span>
-            <p className={styles.description}> With a passion for developing mordern Web apps for commercial businesses.</p>
-            {/* <a href={CV} download>
-                <button className='hover'> Resume</button>
-            </a> */}
-            <a href="#contact" >
-                <button className='hover'> Let's Connect</button>
-            </a>
-        </div>
+      </div>
+      <div className={styles.info}>
+        <h1 className={styles.title}>
+          <span className={styles.nameLine}>Zaid</span>
+          <span className={styles.nameLine}>Sayed</span>
+        </h1>
+        <p className={styles.role}>
+          <span className={styles.roleText}>Frontend</span>
+          <span className={styles.amp}>&</span>
+          <span className={styles.roleText}>Backend</span>
+          <span className={styles.roleSub}>Developer</span>
+        </p>
+        <p className={styles.description}>
+          Building modern web apps with a focus on clean UI and solid APIs.
+        </p>
+        <span className={styles.social}>
+          <a href="https://twitter.com/zaidsayed09" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <img src={twitterIcon} alt="" />
+          </a>
+          <a href="https://github.com/zaidsayed910" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src={githubIcon} alt="" />
+          </a>
+          <a href="https://linkedin.com/in/zaid-sayed-09" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src={linkedinIcon} alt="" />
+          </a>
+        </span>
+        <a href="#contact" className={styles.ctaWrap}>
+          <button type="button" className={styles.cta}>
+            Let&apos;s Connect
+          </button>
+        </a>
+      </div>
     </section>
   )
 }
